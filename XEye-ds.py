@@ -52,6 +52,8 @@ def Checkroot():
         print("\n\n [Warning] --> You are not root - Please read and follow the instructions below: \n ")
         print("\n [Instruction] --> 1- Please run the XEye-ds tool with root user not only with \"sudo\" to configure your adapter with no issues. ")
         print(" [Instruction] --> 2- Run \"sudo su\" command then enter the password for the current user to change to root with the pwd, then run the tool again :) \n")
+        time.sleep(1)
+        exit()
 Checkroot()
 time.sleep(2)
 print("\n [Info] --> Configure Firewall for DNS spoofing compatibility - please wait .....")
