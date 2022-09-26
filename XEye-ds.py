@@ -76,7 +76,7 @@ else:
     time.sleep(2)
     exit()
 def getip():
-    interfs = subprocess.getoutput("ifconfig|grep flags")
+    interfs = subprocess.getoutput("ifconfig|grep BROADCAST")
     #iterff = subprocess.getoutput("ifconfig")
     interf = re.search(r"\w\w\w\w\d", str(interfs))
     interff = re.search(r"\w\w\w\d", str(interfs))
