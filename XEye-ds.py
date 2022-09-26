@@ -126,6 +126,7 @@ try:
                 anspof = sc.DNSRR(rrname=reqname, rdata=str(ip))
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
+                ippacket[sc.IP].dst = reqname
                 del ippacket[sc.IP].len
                 del ippacket[sc.IP].chksum
                 del ippacket[sc.UDP].len
