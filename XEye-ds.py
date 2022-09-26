@@ -86,13 +86,13 @@ def getip():
             inet = re.search(r"inet", str(ipf))
             if inet:
                 ipff = re.search(r"(?:\d{1,3}\.){3}\d{1,3}(?:/\d\d?)?", str(ipf))
-                return ipff
+                return ipff.group(0)
             elif interff:
                 ips = subprocess.getoutput("ifconfig "+interff.group(0))
                 inett = re.search(r"inet", str(ips))
                 if inett:
                     ipss = re.search(r"(?:\d{1,3}\.){3}\d{1,3}(?:/\d\d?)?", str(ips))
-                    return ipss
+                    return ipss.group(0)
                 else:
                     print("[Warning] --> Interfaces don't have an IP address - Exiting .....")
                     time.sleep(2)
@@ -102,7 +102,7 @@ def getip():
             inett = re.search(r"inet", str(ips))
             if inett:
                 ipss = re.search(r"(?:\d{1,3}\.){3}\d{1,3}(?:/\d\d?)?", str(ips))
-                return ipss
+                return ipss.group(0)
     else:
         print("\n [Warning] --> coulnd't find a valid Interface for DNS spoofing - Exiting ....")
         time.sleep(2)
