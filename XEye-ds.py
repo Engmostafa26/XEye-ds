@@ -130,7 +130,7 @@ try:
                 del ippacket[sc.UDP].len
                 del ippacket[sc.UDP].chksum
                 packet.set_payload(bytes(ippacket))
-            # ippacket.show()
+            ippacket.show()
         packet.accept()
     nfqu = netfilterqueue.NetfilterQueue()
     nfqu.bind(0, packeting)
