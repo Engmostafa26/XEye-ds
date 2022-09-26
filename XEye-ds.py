@@ -119,7 +119,7 @@ try:
     def packeting(packet):
         ippacket = sc.IP(packet.get_payload())
         #print(ippacket.show())
-        if ippacket.haslayer(sc.DNSRR):
+        if ippacket.haslayer(sc.DNSQR):
             reqname = ippacket[sc.DNSQR].qname
             if str(domain) in str(reqname):
                 print("[Congrats] --> Target is spoofed and directed to "+str(ip)+" ....")
