@@ -6,3 +6,6 @@ The tool needs to run with root user to function properly and it works with pyth
 2- Install netfilterqueue for python3 by running this command: "pip3 install netfilterqueue"
 Run the tool: python3 XEye-ds.py
 
+Made by [XEye Academy](https://academy.XEyecs.com) for Educational Purposes only.
+
+
